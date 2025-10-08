@@ -47,16 +47,23 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        sidebar: {
-          DEFAULT: "hsl(var(--sidebar-background))",
-          foreground: "hsl(var(--sidebar-foreground))",
-          primary: "hsl(var(--sidebar-primary))",
-          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
-          accent: "hsl(var(--sidebar-accent))",
-          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
-          border: "hsl(var(--sidebar-border))",
-          ring: "hsl(var(--sidebar-ring))",
+        hero: {
+          DEFAULT: "hsl(var(--hero))",
+          foreground: "hsl(var(--hero-foreground))",
         },
+        badge: {
+          blue: "hsl(var(--badge-blue))",
+          "blue-foreground": "hsl(var(--badge-blue-foreground))",
+          green: "hsl(var(--badge-green))",
+          "green-foreground": "hsl(var(--badge-green-foreground))",
+          purple: "hsl(var(--badge-purple))",
+          "purple-foreground": "hsl(var(--badge-purple-foreground))",
+          orange: "hsl(var(--badge-orange))",
+          "orange-foreground": "hsl(var(--badge-orange-foreground))",
+        },
+      },
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
       },
       borderRadius: {
         lg: "var(--radius)",
