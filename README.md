@@ -146,33 +146,6 @@ The project uses a comprehensive design system with semantic color tokens define
 - **Typography**: Inter font family for clean, professional text
 - **Dark Mode**: Full support with theme-specific color tokens
 
-## 📊 Statistics
-
-- 10,000+ Conferences Listed
-- 5,000+ Academic Journals
-- 50,000+ Active Researchers
-
 ## 🤝 Contributing
 
-This project is built with [Lovable](https://lovable.dev). To make changes:
-
-1. Visit the [Lovable Project](https://lovable.dev/projects/0c361780-3e06-4068-bfd0-e205b4034ab3)
-2. Use the AI chat to make updates
-3. Changes are automatically committed to the repository
-
-## 📝 License
-
-This project is built with Lovable and follows their terms of service.
-
-## 🔗 Useful Links
-
-- [Lovable Documentation](https://docs.lovable.dev/)
-- [Project URL](https://lovable.dev/projects/0c361780-3e06-4068-bfd0-e205b4034ab3)
-
-## 📧 Contact
-
-For questions or support, please use the contact form on the website or reach out through our social media channels.
-
----
-
-Built with ❤️ using [Lovable](https://lovable.dev)
+This project is built by Bhuvan , Ayush , Pratham
