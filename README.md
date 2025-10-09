@@ -1,73 +1,178 @@
-# Welcome to your Lovable project
+# ResearchSphere
 
-## Project info
+A comprehensive platform designed to help researchers, academics, and institutions discover and connect with conferences, journals, and publication opportunities worldwide.
 
-**URL**: https://lovable.dev/projects/0c361780-3e06-4068-bfd0-e205b4034ab3
+## 🎯 Overview
 
-## How can I edit this code?
+ResearchSphere streamlines the research publication process by aggregating opportunities from diverse fields and providing powerful search and filtering tools. Our platform connects researchers worldwide with the best opportunities for publication, collaboration, and knowledge sharing.
 
-There are several ways of editing your application.
+## ✨ Features
 
-**Use Lovable**
+- **Universal Search**: Search across conferences, journals, and calls for papers from a single search bar
+- **Advanced Filtering**: Filter by domain, region, submission deadlines, impact factor, and more
+- **Comprehensive Database**: Access thousands of conferences, journals, and publication opportunities
+- **Multi-page Pagination**: Browse through extensive listings with smooth navigation
+- **Responsive Design**: Fully responsive interface optimized for desktop, tablet, and mobile devices
+- **Dark Mode Support**: Toggle between light and dark themes for comfortable viewing
+- **Professional Academic Aesthetic**: Clean, modern design tailored for the academic community
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/0c361780-3e06-4068-bfd0-e205b4034ab3) and start prompting.
+## 📄 Pages
 
-Changes made via Lovable will be committed automatically to this repo.
+### Home Page
+- Hero section with prominent call-to-action
+- Universal search bar for quick access
+- Category tabs for browsing
+- Featured conferences, journals, and publications
+- Newsletter signup
 
-**Use your preferred IDE**
+### Conferences
+- Filterable conference listings with detailed cards
+- Search by name, location, or topic
+- Filter by domain, region, dates, and submission deadlines
+- Pagination with 8 conferences per page
+- Conference details including dates, location, and submission info
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Journals
+- Comprehensive journal database with 40+ entries
+- Search and filter functionality
+- Impact factor and category information
+- Publisher details and submission links
+- Clean table layout with colored category badges
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Publications / Calls for Papers
+- Dedicated section for open calls (24+ active calls)
+- Filter by category and deadline
+- Detailed call cards with submission requirements
+- Pagination with 8 calls per page
+- Direct links to submission portals
 
-Follow these steps:
+### About
+- Platform mission and values
+- Core features overview
+- Statistics and impact metrics
+- Team information
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
+### Contact
+- Contact form for inquiries
+- Office location and contact details
+- Social media links
+- Academic-themed illustration
+
+## 🛠️ Technologies Used
+
+- **React** - Frontend framework
+- **TypeScript** - Type-safe JavaScript
+- **Vite** - Build tool and development server
+- **Tailwind CSS** - Utility-first CSS framework
+- **shadcn/ui** - High-quality React components
+- **React Router** - Client-side routing
+- **Lucide React** - Icon library
+- **next-themes** - Dark mode support
+- **React Hook Form** - Form handling
+- **Zod** - Schema validation
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js (v18 or higher)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+```bash
 git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
 cd <YOUR_PROJECT_NAME>
+```
 
-# Step 3: Install the necessary dependencies.
-npm i
+2. Install dependencies:
+```bash
+npm install
+```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+3. Start the development server:
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+4. Open your browser and navigate to `http://localhost:5173`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Build for Production
 
-**Use GitHub Codespaces**
+```bash
+npm run build
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+The build output will be in the `dist` directory.
 
-## What technologies are used for this project?
+### Preview Production Build
 
-This project is built with:
+```bash
+npm run preview
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 📁 Project Structure
 
-## How can I deploy this project?
+```
+src/
+├── assets/          # Images and static assets
+├── components/      # Reusable components
+│   ├── ui/         # shadcn/ui components
+│   ├── Navigation.tsx
+│   └── Footer.tsx
+├── pages/          # Page components
+│   ├── Index.tsx
+│   ├── Conferences.tsx
+│   ├── Journals.tsx
+│   ├── Publications.tsx
+│   ├── About.tsx
+│   ├── Contact.tsx
+│   └── NotFound.tsx
+├── lib/            # Utility functions
+├── hooks/          # Custom React hooks
+├── App.tsx         # Main app component
+├── main.tsx        # Entry point
+└── index.css       # Global styles and design tokens
+```
 
-Simply open [Lovable](https://lovable.dev/projects/0c361780-3e06-4068-bfd0-e205b4034ab3) and click on Share -> Publish.
+## 🎨 Design System
 
-## Can I connect a custom domain to my Lovable project?
+The project uses a comprehensive design system with semantic color tokens defined in `src/index.css` and `tailwind.config.ts`:
 
-Yes, you can!
+- **Primary Colors**: Teal-based palette for main actions and accents
+- **Secondary Colors**: Blue tones for complementary elements
+- **Badge Colors**: Color-coded categories (blue, green, purple, orange)
+- **Typography**: Inter font family for clean, professional text
+- **Dark Mode**: Full support with theme-specific color tokens
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 📊 Statistics
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+- 10,000+ Conferences Listed
+- 5,000+ Academic Journals
+- 50,000+ Active Researchers
+
+## 🤝 Contributing
+
+This project is built with [Lovable](https://lovable.dev). To make changes:
+
+1. Visit the [Lovable Project](https://lovable.dev/projects/0c361780-3e06-4068-bfd0-e205b4034ab3)
+2. Use the AI chat to make updates
+3. Changes are automatically committed to the repository
+
+## 📝 License
+
+This project is built with Lovable and follows their terms of service.
+
+## 🔗 Useful Links
+
+- [Lovable Documentation](https://docs.lovable.dev/)
+- [Project URL](https://lovable.dev/projects/0c361780-3e06-4068-bfd0-e205b4034ab3)
+
+## 📧 Contact
+
+For questions or support, please use the contact form on the website or reach out through our social media channels.
+
+---
+
+Built with ❤️ using [Lovable](https://lovable.dev)
