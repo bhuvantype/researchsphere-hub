@@ -8,6 +8,10 @@ import Index from "./pages/Index";
 import Conferences from "./pages/Conferences";
 import Journals from "./pages/Journals";
 import Publications from "./pages/Publications";
+import GeneralFinder from "./pages/GeneralFinder";
+import BookChapters from "./pages/BookChapters";
+import ProjectCalls from "./pages/ProjectCalls";
+import ResearchCollaboration from "./pages/ResearchCollaboration";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
@@ -26,6 +30,10 @@ const App = () => (
             <Route path="/conferences" element={<Conferences />} />
             <Route path="/journals" element={<Journals />} />
             <Route path="/publications" element={<Publications />} />
+            <Route path="/general-finder" element={<GeneralFinder />} />
+            <Route path="/book-chapters" element={<BookChapters />} />
+            <Route path="/project-calls" element={<ProjectCalls />} />
+            <Route path="/research-collaboration" element={<ResearchCollaboration />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
