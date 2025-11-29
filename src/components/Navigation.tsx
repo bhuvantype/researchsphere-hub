@@ -12,7 +12,7 @@ const Navigation = () => {
   
   const mainNavItems = [
     { name: "Home", path: "/" },
-    { name: "Confess", path: "/conferences" },
+    { name: "Conference", path: "/conferences" },
     { name: "Boot Camp", path: "/general-finder" },
   ];
 
