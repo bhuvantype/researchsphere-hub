@@ -3,36 +3,28 @@ import { Moon, Sun, User, ChevronDown, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
 import { useState } from "react";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 
 const Navigation = () => {
   const location = useLocation();
   const { theme, setTheme } = useTheme();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [researchDropdownOpen, setResearchDropdownOpen] = useState(false);
   
   const mainNavItems = [
     { name: "Home", path: "/" },
-    { name: "Finder", path: "/general-finder" },
-    { name: "About", path: "/about" },
-    { name: "Contact", path: "/contact" },
+    { name: "Confess", path: "/conferences" },
+    { name: "Boot Camp", path: "/general-finder" },
   ];
 
-  const discoverItems = [
-    { name: "Conferences", path: "/conferences" },
-    { name: "Journals", path: "/journals" },
-    { name: "Publications", path: "/publications" },
-    { name: "Book Chapters", path: "/book-chapters" },
-    { name: "Project Calls", path: "/project-calls" },
-    { name: "Collaborations", path: "/research-collaboration" },
+  const researchOpportunities = [
+    { name: "PhD", path: "/publications" },
+    { name: "Postdoc", path: "/journals" },
+    { name: "Call for Project", path: "/project-calls" },
+    { name: "Internship", path: "/research-collaboration" },
   ];
 
   const isActive = (path: string) => location.pathname === path;
-  const isDiscoverActive = discoverItems.some(item => location.pathname === item.path);
+  const isResearchActive = researchOpportunities.some(item => location.pathname === item.path);
 
   return (
     <nav className="bg-card border-b border-border sticky top-0 z-50">
@@ -47,11 +39,11 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-1">
-            {mainNavItems.slice(0, 2).map((item) => (
+            {mainNavItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
                   isActive(item.path)
                     ? "text-primary bg-primary/10"
                     : "text-foreground hover:text-primary hover:bg-muted"
@@ -61,48 +53,70 @@ const Navigation = () => {
               </Link>
             ))}
 
-            {/* Discover Dropdown */}
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button
-                  variant="ghost"
-                  className={`px-4 py-2 text-sm font-medium ${
-                    isDiscoverActive ? "text-primary bg-primary/10" : ""
-                  }`}
-                >
-                  Discover
-                  <ChevronDown className="ml-1 h-4 w-4" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="start" className="w-56">
-                {discoverItems.map((item) => (
-                  <DropdownMenuItem key={item.path} asChild>
+            {/* Research Opportunities Dropdown */}
+            <div 
+              className="relative"
+              onMouseEnter={() => setResearchDropdownOpen(true)}
+              onMouseLeave={() => setResearchDropdownOpen(false)}
+            >
+              <button
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 flex items-center gap-1 ${
+                  isResearchActive 
+                    ? "text-primary bg-primary/10" 
+                    : "text-foreground hover:text-primary hover:bg-muted"
+                }`}
+              >
+                Research Opportunities
+                <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${researchDropdownOpen ? 'rotate-180' : ''}`} />
+              </button>
+              
+              {/* Dropdown Menu */}
+              <div 
+                className={`absolute top-full left-0 mt-1 w-48 bg-card border border-border rounded-xl shadow-lg overflow-hidden transition-all duration-200 origin-top ${
+                  researchDropdownOpen 
+                    ? 'opacity-100 scale-y-100 translate-y-0' 
+                    : 'opacity-0 scale-y-95 -translate-y-2 pointer-events-none'
+                }`}
+              >
+                <div className="py-2">
+                  {researchOpportunities.map((item) => (
                     <Link
+                      key={item.path}
                       to={item.path}
-                      className={`w-full cursor-pointer ${
-                        isActive(item.path) ? "bg-primary/10 text-primary" : ""
+                      className={`block px-4 py-2.5 text-sm font-medium transition-all duration-150 ${
+                        isActive(item.path) 
+                          ? "bg-primary/10 text-primary" 
+                          : "text-foreground hover:bg-muted hover:text-primary hover:pl-5"
                       }`}
                     >
                       {item.name}
                     </Link>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
+                  ))}
+                </div>
+              </div>
+            </div>
 
-            {mainNavItems.slice(2).map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-                  isActive(item.path)
-                    ? "text-primary bg-primary/10"
-                    : "text-foreground hover:text-primary hover:bg-muted"
-                }`}
-              >
-                {item.name}
-              </Link>
-            ))}
+            {/* About & Contact */}
+            <Link
+              to="/about"
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
+                isActive("/about")
+                  ? "text-primary bg-primary/10"
+                  : "text-foreground hover:text-primary hover:bg-muted"
+              }`}
+            >
+              About
+            </Link>
+            <Link
+              to="/contact"
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
+                isActive("/contact")
+                  ? "text-primary bg-primary/10"
+                  : "text-foreground hover:text-primary hover:bg-muted"
+              }`}
+            >
+              Contact
+            </Link>
           </div>
 
           {/* Right side buttons */}
@@ -110,13 +124,14 @@ const Navigation = () => {
             <Button
               variant="ghost"
               size="icon"
+              className="rounded-lg"
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             >
               <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
               <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
               <span className="sr-only">Toggle theme</span>
             </Button>
-            <Button variant="ghost" size="icon">
+            <Button variant="ghost" size="icon" className="rounded-lg">
               <User className="h-5 w-5" />
             </Button>
 
@@ -124,7 +139,7 @@ const Navigation = () => {
             <Button
               variant="ghost"
               size="icon"
-              className="lg:hidden"
+              className="lg:hidden rounded-lg"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               {mobileMenuOpen ? (
@@ -138,13 +153,13 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="lg:hidden py-4 space-y-2">
+          <div className="lg:hidden py-4 space-y-1 border-t border-border">
             {mainNavItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`block px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                className={`block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${
                   isActive(item.path)
                     ? "text-primary bg-primary/10"
                     : "text-foreground hover:text-primary hover:bg-muted"
@@ -154,15 +169,15 @@ const Navigation = () => {
               </Link>
             ))}
             
-            <div className="px-4 py-2 text-sm font-semibold text-muted-foreground">
-              Discover
+            <div className="px-4 py-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+              Research Opportunities
             </div>
-            {discoverItems.map((item) => (
+            {researchOpportunities.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`block px-6 py-2 rounded-md text-sm font-medium transition-colors ${
+                className={`block px-6 py-2.5 rounded-lg text-sm font-medium transition-colors ${
                   isActive(item.path)
                     ? "text-primary bg-primary/10"
                     : "text-foreground hover:text-primary hover:bg-muted"
@@ -171,6 +186,29 @@ const Navigation = () => {
                 {item.name}
               </Link>
             ))}
+
+            <Link
+              to="/about"
+              onClick={() => setMobileMenuOpen(false)}
+              className={`block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+                isActive("/about")
+                  ? "text-primary bg-primary/10"
+                  : "text-foreground hover:text-primary hover:bg-muted"
+              }`}
+            >
+              About
+            </Link>
+            <Link
+              to="/contact"
+              onClick={() => setMobileMenuOpen(false)}
+              className={`block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+                isActive("/contact")
+                  ? "text-primary bg-primary/10"
+                  : "text-foreground hover:text-primary hover:bg-muted"
+              }`}
+            >
+              Contact
+            </Link>
           </div>
         )}
       </div>
